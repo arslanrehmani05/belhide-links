@@ -60,6 +60,14 @@ export interface CareGuideData {
   proTips: string[];
 }
 
+export interface SizeCategory {
+  title: string;
+  chestInches: string;
+  shoulderInches: string;
+  sleeveInches: string;
+  fitDescription: string;
+}
+
 export interface SizeGuideData {
   title: string;
   subtitle: string;
@@ -92,14 +100,14 @@ export interface BrandConfig {
 
 // ============================================================================
 // SINGLE SOURCE OF TRUTH — BELHIDE LINKS CONFIGURATION
-// All copy, links, markets, and content can be updated right here.
+// Matches belhide.com official brand positioning, colors & copy.
 // ============================================================================
 
 export const brandConfig: BrandConfig = {
   name: "Belhide",
   wordmark: "BELHIDE",
-  tagline: "Leather goods, made to last",
-  subtagline: "Handcrafted Heritage • Est. 1998",
+  tagline: "Crafted with Obsession. Worn with Purpose.",
+  subtagline: "Handcrafted Leather Outerwear • Est. 1998",
   established: "1998",
   theme: "parchment", // Active default theme: "parchment" | "espresso" | "ivory"
   supportEmail: "belhideofficial@gmail.com",
@@ -112,11 +120,11 @@ export const brandConfig: BrandConfig = {
 };
 
 export const heroAction: HeroActionConfig = {
-  title: "Shop the Flagship Collection",
-  subtitle: "Handcrafted full-grain leather jackets, bombers, shearling coats & suede outerwear.",
+  title: "Shop Men's & Women's Outerwear",
+  subtitle: "From full-grain leather to fine wool, every Belhide piece carries the weight of legacy — made to last, made to matter.",
   ctaText: "Explore Collection",
   url: "https://belhide.com",
-  badge: "2026 Ready-to-Wear",
+  badge: "Handcrafted Luxury",
   badgeType: "featured",
   highlightMetric: "100%",
   highlightText: "Full-Grain Italian & Turkish Leathers",
@@ -168,7 +176,7 @@ export const secondaryLinks: SecondaryLink[] = [
   {
     id: "care-guide",
     label: "Leather Care Guide",
-    subtitle: "Cleaning, conditioning & longevity practices",
+    subtitle: "The Leather Library • Cleaning & conditioning",
     url: "#care-guide",
     icon: "book",
     badge: "Essential",
@@ -180,7 +188,7 @@ export const secondaryLinks: SecondaryLink[] = [
   {
     id: "bespoke",
     label: "Bespoke & Custom",
-    subtitle: "Made-to-measure jackets from $350",
+    subtitle: "Made-to-measure jackets starting at $350",
     url: "https://belhide.com/custom",
     icon: "scissors",
     badge: "Custom",
