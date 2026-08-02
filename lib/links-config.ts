@@ -9,77 +9,59 @@ export interface Market {
   isDefault?: boolean;
 }
 
-export interface HeroActionConfig {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  url: string;
-  badge?: string;
-  badgeType?: 'featured' | 'new' | 'limited';
-  highlightMetric?: string;
-  highlightText?: string;
+export interface HeroConfig {
+  headline: string;
+  subheading: string;
+  primaryCtaText: string;
+  primaryCtaUrl: string;
+  secondaryCtaText: string;
+  badge: string;
 }
 
-export type IconType = 
-  | 'instagram' 
-  | 'book' 
-  | 'ruler' 
-  | 'message' 
-  | 'scissors' 
-  | 'shield' 
-  | 'globe' 
-  | 'sparkles'
-  | 'heart'
-  | 'shopping-bag';
-
-export interface SecondaryLink {
+export interface ShopCategory {
   id: string;
-  label: string;
-  subtitle?: string;
+  title: string;
+  subtitle: string;
   url: string;
-  icon: IconType;
-  handle?: string;
   badge?: string;
-  cardSize: 'full' | 'half'; // Bento grid layout sizing
-  accentBorder?: boolean;
-  isModal?: boolean; // Opens built-in rich modal instead of navigating away
-  modalType?: 'care-guide' | 'size-guide';
+  icon: string;
 }
 
-export interface CareStep {
+export interface CareArticle {
+  id: string;
   title: string;
-  description: string;
-  tip: string;
+  category: string;
+  summary: string;
+  content: string[];
+  proTip?: string;
 }
 
-export interface CareGuideData {
-  title: string;
-  subtitle: string;
-  introduction: string;
-  steps: CareStep[];
-  proTips: string[];
-}
-
-export interface SizeCategory {
-  title: string;
-  chestInches: string;
-  shoulderInches: string;
-  sleeveInches: string;
-  fitDescription: string;
-}
-
-export interface SizeGuideData {
+export interface StyleLink {
+  id: string;
   title: string;
   subtitle: string;
-  measurementTip: string;
-  sizes: {
-    size: string;
-    usEu: string;
-    chest: string;
-    shoulder: string;
-    sleeve: string;
-    fitNote: string;
-  }[];
+  platform: 'pinterest' | 'instagram' | 'editorial' | 'lookbook' | 'outfit';
+  url: string;
+  badge?: string;
+}
+
+export interface CustomerReview {
+  id: string;
+  author: string;
+  location: string;
+  productName: string;
+  rating: number;
+  date: string;
+  comment: string;
+  verifiedPurchase: boolean;
+}
+
+export interface SupportLink {
+  id: string;
+  title: string;
+  subtitle: string;
+  url: string;
+  icon: string;
 }
 
 export interface BrandConfig {
@@ -94,20 +76,21 @@ export interface BrandConfig {
   whatsappUrl?: string;
   instagramHandle: string;
   instagramUrl: string;
+  pinterestUrl: string;
   websiteUrl: string;
   physicalTagBadge: string;
 }
 
 // ============================================================================
-// SINGLE SOURCE OF TRUTH — BELHIDE LINKS CONFIGURATION
-// Matches belhide.com official brand positioning, colors & copy.
+// SINGLE SOURCE OF TRUTH — BELHIDE CUSTOMER HUB & LINKS CONFIGURATION
+// Everything on the hub is editable in this single file.
 // ============================================================================
 
 export const brandConfig: BrandConfig = {
   name: "Belhide",
   wordmark: "BELHIDE",
-  tagline: "Crafted with Obsession. Worn with Purpose.",
-  subtagline: "Handcrafted Leather Outerwear • Est. 1998",
+  tagline: "Crafted to Last.",
+  subtagline: "Handcrafted Heritage • Est. 1998",
   established: "1998",
   theme: "parchment", // Active default theme: "parchment" | "espresso" | "ivory"
   supportEmail: "belhideofficial@gmail.com",
@@ -115,184 +98,172 @@ export const brandConfig: BrandConfig = {
   whatsappUrl: "https://wa.me/18005552354?text=Hello%20Belhide%20Team%2C%20I%20have%20an%20inquiry%20regarding%20a%20leather%20jacket.",
   instagramHandle: "@belhide.official",
   instagramUrl: "https://instagram.com/belhide.official",
+  pinterestUrl: "https://pinterest.com/belhide",
   websiteUrl: "https://belhide.com",
   physicalTagBadge: "Official Product Tag • links.belhide.com",
 };
 
-export const heroAction: HeroActionConfig = {
-  title: "Shop Men's & Women's Outerwear",
-  subtitle: "From full-grain leather to fine wool, every Belhide piece carries the weight of legacy — made to last, made to matter.",
-  ctaText: "Explore Collection",
-  url: "https://belhide.com",
-  badge: "Handcrafted Luxury",
-  badgeType: "featured",
-  highlightMetric: "100%",
-  highlightText: "Full-Grain Italian & Turkish Leathers",
+export const heroConfig: HeroConfig = {
+  headline: "Crafted to Last.",
+  subheading: "Welcome to the BELHIDE Customer Hub. Everything you need to register your product, care for your leather, discover new collections, and stay connected with the brand.",
+  primaryCtaText: "Shop Collection",
+  primaryCtaUrl: "https://belhide.com",
+  secondaryCtaText: "Register Your Product",
+  badge: "Customer Hub & Authentication",
 };
 
 export const markets: Market[] = [
-  { 
-    id: "us", 
-    name: "United States", 
-    flag: "🇺🇸", 
-    currency: "USD ($)", 
-    url: "https://belhide.com?market=us", 
-    isDefault: true 
-  },
-  { 
-    id: "uk", 
-    name: "United Kingdom", 
-    flag: "🇬🇧", 
-    currency: "GBP (£)", 
-    url: "https://belhide.com?market=uk" 
-  },
-  { 
-    id: "eu", 
-    name: "Europe", 
-    flag: "🇪🇺", 
-    currency: "EUR (€)", 
-    url: "https://belhide.com?market=eu" 
-  },
-  { 
-    id: "ca", 
-    name: "Canada", 
-    flag: "🇨🇦", 
-    currency: "CAD ($)", 
-    url: "https://belhide.com?market=ca" 
-  },
+  { id: "us", name: "United States", flag: "🇺🇸", currency: "USD ($)", url: "https://belhide.com?market=us", isDefault: true },
+  { id: "uk", name: "United Kingdom", flag: "🇬🇧", currency: "GBP (£)", url: "https://belhide.com?market=uk" },
+  { id: "eu", name: "Europe", flag: "🇪🇺", currency: "EUR (€)", url: "https://belhide.com?market=eu" },
+  { id: "ca", name: "Canada", flag: "🇨🇦", currency: "CAD ($)", url: "https://belhide.com?market=ca" },
 ];
 
-export const secondaryLinks: SecondaryLink[] = [
-  {
-    id: "instagram",
-    label: "Follow on Instagram",
-    subtitle: "@belhide.official • Artisanal drops & studio stories",
-    url: "https://instagram.com/belhide.official",
-    icon: "instagram",
-    handle: "@belhide.official",
-    badge: "Official",
-    cardSize: "full",
-  },
+export const shopCategories: ShopCategory[] = [
+  { id: "new-arrivals", title: "New Arrivals", subtitle: "2026 Ready-to-wear seasonal drops", url: "https://belhide.com/new-arrivals", badge: "Latest", icon: "sparkles" },
+  { id: "best-sellers", title: "Best Sellers", subtitle: "Our most iconic handcrafted silhouettes", url: "https://belhide.com/best-sellers", badge: "Popular", icon: "flame" },
+  { id: "leather-jackets", title: "Leather Jackets", subtitle: "Biker, racer, bomber & shearling coats", url: "https://belhide.com/jackets", icon: "jacket" },
+  { id: "leather-bags", title: "Leather Bags", subtitle: "Full-grain duffels, holdalls & briefcases", url: "https://belhide.com/bags", icon: "bag" },
+  { id: "leather-accessories", title: "Leather Accessories", subtitle: "Wallets, belts, key fobs & watch straps", url: "https://belhide.com/accessories", icon: "wallet" },
+  { id: "gift-ideas", title: "Gift Ideas", subtitle: "Curated heirloom gifts & bespoke sets", url: "https://belhide.com/gifts", badge: "Curated", icon: "gift" },
+];
+
+export const careArticles: CareArticle[] = [
   {
     id: "care-guide",
-    label: "Leather Care Guide",
-    subtitle: "The Leather Library • Cleaning & conditioning",
-    url: "#care-guide",
-    icon: "book",
-    badge: "Essential",
-    cardSize: "half",
-    accentBorder: true,
-    isModal: true,
-    modalType: "care-guide",
+    title: "Essential Leather Care Guide",
+    category: "Overview",
+    summary: "The foundational practices for keeping full-grain leather supple and rich.",
+    content: [
+      "Full-grain leather is a natural living material that absorbs environmental oils and develops a rich patina over time.",
+      "Always wipe down your jacket with a clean micro-fiber cloth after wearing outdoors.",
+      "Store your garment in a breathable cotton garment bag, away from direct sunlight."
+    ],
+    proTip: "Never use artificial heat sources like hair dryers to dry wet leather."
   },
   {
-    id: "bespoke",
-    label: "Bespoke & Custom",
-    subtitle: "Made-to-measure jackets starting at $350",
-    url: "https://belhide.com/custom",
-    icon: "scissors",
-    badge: "Custom",
-    cardSize: "half",
+    id: "cleaning",
+    title: "Cleaning Leather Safely",
+    category: "Cleaning",
+    summary: "How to remove surface dust, rain spots, and minor stains without damaging the hide.",
+    content: [
+      "For everyday dust, dry buff gentle circular strokes with a lint-free cloth.",
+      "For water spots, lightly dampen a cloth with distilled water and gently feather the edges.",
+      "Allow to air dry naturally at room temperature."
+    ],
+    proTip: "Never submerge leather in water or use household liquid soap."
   },
   {
-    id: "size-guide",
-    label: "Fit & Size Guide",
-    subtitle: "Chest measurements & fit comparison",
-    url: "#size-guide",
-    icon: "ruler",
-    cardSize: "half",
-    isModal: true,
-    modalType: "size-guide",
+    id: "conditioning",
+    title: "Conditioning Leather",
+    category: "Conditioning",
+    summary: "Replenish essential natural oils every 6 months to prevent cracking.",
+    content: [
+      "Apply a pea-sized amount of natural wax/oil balm to a soft applicator sponge.",
+      "Massage evenly across panels in gentle circular movements.",
+      "Let rest for 30 minutes, then buff lightly with a dry microfiber cloth."
+    ],
+    proTip: "Always test conditioner on an inconspicuous interior hem first."
   },
   {
-    id: "contact",
-    label: "VIP Concierge & Support",
-    subtitle: "Direct WhatsApp & email assistance",
-    url: "mailto:belhideofficial@gmail.com",
-    icon: "message",
-    cardSize: "half",
+    id: "storage",
+    title: "Storage & Protection",
+    category: "Storage",
+    summary: "Maintain structural shoulder shape and prevent mildew during off-seasons.",
+    content: [
+      "Always use a broad, contoured wooden hanger that supports shoulder pads.",
+      "Avoid plastic garment bags which seal in humidity; use breathable unbleached cotton.",
+      "Keep in a climate-controlled closet away from damp basements or hot attics."
+    ],
+    proTip: "Insert cedar blocks nearby for natural moisture absorption and moth defense."
   },
+  {
+    id: "rain-protection",
+    title: "Rain & Weather Defense",
+    category: "Weather",
+    summary: "What to do if caught in unexpected downpours.",
+    content: [
+      "If drenched, shake off excess droplets immediately.",
+      "Hang on a wide wooden hanger and absorb surface water with dry towels.",
+      "Let air dry slowly away from radiators or heaters."
+    ],
+    proTip: "Apply a natural beeswax-based leather protector spray before rainy seasons."
+  },
+  {
+    id: "travel-tips",
+    title: "Travel & Packing Guide",
+    category: "Travel",
+    summary: "Protect your outerwear when packing for flights or weekend getaways.",
+    content: [
+      "Turn the jacket inside out, folding shoulders inward to prevent exterior scuffs.",
+      "Place tissue paper inside sleeves to preserve sleeve curvature.",
+      "Wear your jacket on flights whenever possible to keep shape intact."
+    ]
+  },
+  {
+    id: "leather-faq",
+    title: "Leather FAQs",
+    category: "FAQ",
+    summary: "Answers to common questions regarding full-grain leather breakdown.",
+    content: [
+      "Q: Why does my leather have natural grain variations?\nA: Full-grain leather retains the natural hide characteristics, proving genuine authenticity.",
+      "Q: Can scratches be removed?\nA: Minor fingernail scratches fade by massaging skin oils into the grain with warm fingers."
+    ]
+  }
 ];
 
-// Rich Care Guide Content
-export const careGuideData: CareGuideData = {
-  title: "Leather Care & Preservation",
-  subtitle: "Preserving your Belhide garment for generations",
-  introduction: "Full-grain leather develops a rich, distinctive patina over time. Follow these essential guidelines to preserve its suppleness and structural integrity.",
-  steps: [
-    {
-      title: "1. Regular Cleaning",
-      description: "Wipe gently with a soft, dry micro-fiber cloth after wear to remove surface dust. For minor spots, use a damp cloth with mild soap water.",
-      tip: "Never submerge leather in water or use harsh chemical detergents."
-    },
-    {
-      title: "2. Conditioning (Every 6 Months)",
-      description: "Apply a small amount of premium natural leather balm or cream in circular motions. Let it absorb for 30 minutes before buffing gently.",
-      tip: "Conditioning prevents drying, cracking, and keeps the grain supple."
-    },
-    {
-      title: "3. Moisture & Rain Protection",
-      description: "If caught in rain, wipe off water immediately and let the jacket air-dry naturally at room temperature on a wide padded hanger.",
-      tip: "Never dry leather near artificial heat sources like radiators or hair dryers."
-    },
-    {
-      title: "4. Proper Storage",
-      description: "Hang your jacket on a broad, contoured wooden hanger to maintain shoulder shape. Store in a breathable cotton garment bag in a cool, dry place.",
-      tip: "Avoid plastic covers which trap moisture and promote mildew growth."
-    }
-  ],
-  proTips: [
-    "Full-grain leather stretches slightly over time to mirror your body's silhouette.",
-    "Hardware (YKK brass zippers) can be polished with a dry cloth.",
-    "For deep scuffs, massage natural skin oils or leather balm into the scratch."
-  ]
-};
+export const styleLinks: StyleLink[] = [
+  { id: "instagram-style", title: "Instagram Community", subtitle: "@belhide.official • Daily outfit inspiration & studio drops", platform: "instagram", url: "https://instagram.com/belhide.official", badge: "12K+ Community" },
+  { id: "pinterest-board", title: "Pinterest Moodboards", subtitle: "Curated leather jacket styling, editorial looks & aesthetic boards", platform: "pinterest", url: "https://pinterest.com/belhide", badge: "Inspiration" },
+  { id: "editorials", title: "Editorial Features", subtitle: "Press & style features in GQ, Esquire & Vogue", platform: "editorial", url: "https://belhide.com/editorials" },
+  { id: "lookbooks", title: "Seasonal Lookbooks", subtitle: "Explore our 2026 Autumn & Winter campaign shoots", platform: "lookbook", url: "https://belhide.com/lookbook" },
+  { id: "outfit-guide", title: "Outfit Styling Guide", subtitle: "How to style biker & racer jackets for casual and formal occasions", platform: "outfit", url: "https://belhide.com/style-guide" },
+];
 
-// Rich Size Guide Data
-export const sizeGuideData: SizeGuideData = {
-  title: "Fit & Sizing Guide",
-  subtitle: "Precision tailoring for outerwear",
-  measurementTip: "Measure across the fullest part of your chest, keeping the tape measure horizontal under your arms.",
-  sizes: [
-    {
-      size: "S",
-      usEu: "US 36 / EU 46",
-      chest: '36" - 38" (91-96 cm)',
-      shoulder: '17.5" (44.5 cm)',
-      sleeve: '25.0" (63.5 cm)',
-      fitNote: "Tailored slim fit"
-    },
-    {
-      size: "M",
-      usEu: "US 38 / EU 48",
-      chest: '38" - 40" (96-101 cm)',
-      shoulder: '18.0" (45.7 cm)',
-      sleeve: '25.5" (64.8 cm)',
-      fitNote: "Classic tailored fit"
-    },
-    {
-      size: "L",
-      usEu: "US 40 / EU 50",
-      chest: '40" - 42" (101-106 cm)',
-      shoulder: '18.5" (47.0 cm)',
-      sleeve: '26.0" (66.0 cm)',
-      fitNote: "Comfortable regular fit"
-    },
-    {
-      size: "XL",
-      usEu: "US 42 / EU 52",
-      chest: '42" - 44" (106-111 cm)',
-      shoulder: '19.0" (48.3 cm)',
-      sleeve: '26.5" (67.3 cm)',
-      fitNote: "Relaxed layering fit"
-    },
-    {
-      size: "2XL",
-      usEu: "US 44 / EU 54",
-      chest: '44" - 46" (111-117 cm)',
-      shoulder: '19.5" (49.5 cm)',
-      sleeve: '27.0" (68.5 cm)',
-      fitNote: "Generous fit"
-    }
-  ]
-};
+export const vipBenefits = [
+  "Early access to limited edition drops 24 hours before public launch",
+  "Exclusive invitations to private seasonal sample sales",
+  "Member-only 15% discount on custom bespoke tailoring",
+  "Complimentary annual leather care kit with every jacket purchase",
+  "Direct line to Belhide master artisans for custom sizing consultation"
+];
+
+export const initialReviews: CustomerReview[] = [
+  {
+    id: "rev-1",
+    author: "Marcus V.",
+    location: "New York, NY",
+    productName: "Artisan Biker Jacket (Cognac)",
+    rating: 5,
+    date: "2 days ago",
+    comment: "The weight and smell of the full-grain leather is unmatched. Scanned the QR code on the tag and registered my jacket instantly. Outstanding craftsmanship!",
+    verifiedPurchase: true
+  },
+  {
+    id: "rev-2",
+    author: "Sophia L.",
+    location: "London, UK",
+    productName: "Shearling Aviator Coat",
+    rating: 5,
+    date: "1 week ago",
+    comment: "Kept me incredibly warm in the British winter. The care guide in this hub helped me treat a rain mark effortlessly.",
+    verifiedPurchase: true
+  },
+  {
+    id: "rev-3",
+    author: "David K.",
+    location: "Toronto, CA",
+    productName: "Classic Café Racer Jacket",
+    rating: 5,
+    date: "2 weeks ago",
+    comment: "Bespoke sizing was spot on. Highly recommend registering your product here for warranty protection.",
+    verifiedPurchase: true
+  }
+];
+
+export const supportLinks: SupportLink[] = [
+  { id: "contact-us", title: "Contact Customer Care", subtitle: "Email & WhatsApp concierge team", url: "mailto:belhideofficial@gmail.com", icon: "message" },
+  { id: "shipping-info", title: "Shipping & Delivery", subtitle: "Free US shipping & international delivery details", url: "https://belhide.com/shipping", icon: "truck" },
+  { id: "returns", title: "Returns & Exchanges", subtitle: "14-day hassle-free return policy", url: "https://belhide.com/returns", icon: "rotate-ccw" },
+  { id: "faq", title: "Help & FAQ", subtitle: "Orders, tracking, sizing & payments", url: "https://belhide.com/faq", icon: "help-circle" },
+];

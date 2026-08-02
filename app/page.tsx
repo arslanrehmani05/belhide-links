@@ -1,27 +1,41 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Header from "@/components/Header";
+import { useState, useEffect, Suspense } from "react";
+import HeroSection from "@/components/HeroSection";
 import MarketSelector from "@/components/MarketSelector";
-import HeroCard from "@/components/HeroCard";
-import BentoGrid from "@/components/BentoGrid";
-import CareGuideModal from "@/components/CareGuideModal";
-import SizeGuideModal from "@/components/SizeGuideModal";
+import QrPersonalizationBanner from "@/components/QrPersonalizationBanner";
+import ProductRegistration from "@/components/ProductRegistration";
+import VipClub from "@/components/VipClub";
+import ShopSection from "@/components/ShopSection";
+import CareCenter from "@/components/CareCenter";
+import StyleInspiration from "@/components/StyleInspiration";
+import AiStyleAdvisor from "@/components/AiStyleAdvisor";
+import CustomerReviews from "@/components/CustomerReviews";
+import ReferralTeaser from "@/components/ReferralTeaser";
+import SupportSection from "@/components/SupportSection";
 import Footer from "@/components/Footer";
 import { brandConfig, markets, Market, ThemeVariant } from "@/lib/links-config";
+import { useQrParams } from "@/lib/use-qr-params";
 
-export default function Home() {
+function CustomerHubContent() {
   const [currentTheme, setCurrentTheme] = useState<ThemeVariant>(brandConfig.theme);
   const [activeMarket, setActiveMarket] = useState<Market>(
     markets.find((m) => m.isDefault) || markets[0]
   );
-  const [isCareGuideOpen, setIsCareGuideOpen] = useState(false);
-  const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
+
+  const qrParams = useQrParams();
 
   // Apply data-theme attribute on <html> element when theme changes
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", currentTheme);
   }, [currentTheme]);
+
+  const scrollToRegistration = () => {
+    const el = document.getElementById("product-registration");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <main className="min-h-screen relative flex flex-col items-center justify-between selection:bg-brand-accent selection:text-white transition-colors duration-300">
@@ -30,43 +44,65 @@ export default function Home() {
 
       <div className="w-full max-w-lg mx-auto flex-1 flex flex-col justify-between">
         <div>
-          {/* Header Block with Brand & Theme Switcher */}
-          <Header
+          {/* Hero Section with logo, headline, dual buttons & theme switcher */}
+          <HeroSection
             currentTheme={currentTheme}
             onThemeChange={(newTheme) => setCurrentTheme(newTheme)}
+            onRegisterClick={scrollToRegistration}
           />
 
-          {/* Region / Market Selector */}
+          {/* Dynamic QR Parameter Personalization Banner */}
+          <QrPersonalizationBanner params={qrParams} />
+
+          {/* Storefront Region Selector */}
           <MarketSelector
             activeMarket={activeMarket}
             onSelectMarket={(m) => setActiveMarket(m)}
           />
 
-          {/* Hero Action Priority Card */}
-          <HeroCard activeMarket={activeMarket} />
+          {/* Product Registration Section */}
+          <ProductRegistration />
 
-          {/* Secondary Links Bento Grid */}
-          <BentoGrid
-            onOpenCareGuide={() => setIsCareGuideOpen(true)}
-            onOpenSizeGuide={() => setIsSizeGuideOpen(true)}
-          />
+          {/* VIP Members Club Section */}
+          <VipClub />
+
+          {/* Shop BELHIDE Category Bento Grid */}
+          <ShopSection activeMarket={activeMarket} />
+
+          {/* Leather Care Center */}
+          <CareCenter />
+
+          {/* Style & Inspiration Lookbooks */}
+          <StyleInspiration />
+
+          {/* AI Style Advisor Teaser */}
+          <AiStyleAdvisor />
+
+          {/* Verified Customer Reviews */}
+          <CustomerReviews />
+
+          {/* Refer a Friend Teaser */}
+          <ReferralTeaser />
+
+          {/* Customer Support Quick Links */}
+          <SupportSection />
         </div>
 
-        {/* Minimal Footer */}
+        {/* Refined Legal & Brand Footer */}
         <Footer />
       </div>
-
-      {/* Interactive Care Guide Drawer Modal */}
-      <CareGuideModal
-        isOpen={isCareGuideOpen}
-        onClose={() => setIsCareGuideOpen(false)}
-      />
-
-      {/* Interactive Size Guide Drawer Modal */}
-      <SizeGuideModal
-        isOpen={isSizeGuideOpen}
-        onClose={() => setIsSizeGuideOpen(false)}
-      />
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center text-xs font-serif tracking-widest uppercase text-brand-muted">
+        Loading BELHIDE Customer Hub...
+      </div>
+    }>
+      <CustomerHubContent />
+    </Suspense>
   );
 }
