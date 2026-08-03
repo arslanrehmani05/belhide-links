@@ -32,7 +32,12 @@ export const metadata: Metadata = {
   title: "Belhide Links — Handcrafted Leather Goods",
   description: "Official product links, store regions, leather care guides, and custom bespoke orders for Belhide handcrafted leather outerwear.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/icon.png",
   },
   openGraph: {
     title: "Belhide Links — Handcrafted Leather Goods",
