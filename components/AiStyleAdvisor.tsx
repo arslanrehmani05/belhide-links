@@ -11,30 +11,30 @@ export default function AiStyleAdvisor() {
         <div className="absolute -top-10 -right-10 w-28 h-28 bg-brand-accent/15 rounded-full blur-xl pointer-events-none" />
 
         <div className="flex items-center justify-between gap-2 mb-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-brand-accent/20 text-brand-accent border border-brand-strong">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-accent font-bold tracking-wider uppercase bg-brand-accent text-[#1C120E] border border-brand-strong">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Coming Soon</span>
           </div>
 
-          <span className="text-[10px] font-semibold tracking-wider text-brand-muted uppercase">
+          <span className="text-[10px] font-accent font-semibold tracking-wider text-brand-muted uppercase">
             AI Personalization
           </span>
         </div>
 
-        <div className="flex items-start gap-3">
+        <div className="flex items-start gap-3 font-body">
           <div className="w-10 h-10 rounded-2xl bg-brand-primary border border-brand-subtle flex items-center justify-center text-brand-accent shrink-0">
             <Bot className="w-5 h-5" />
           </div>
 
           <div>
-            <h3 className="font-serif text-xl font-bold text-brand-primary tracking-tight">
+            <h3 className="font-heading font-serif text-xl font-bold text-brand-primary tracking-tight">
               AI Personal Style Advisor
             </h3>
-            <p className="text-xs text-brand-muted mt-1 leading-relaxed">
+            <p className="font-body text-xs text-brand-muted mt-1 leading-relaxed">
               Upload photos of yourself or existing wardrobe pieces to receive AI-powered outfit recommendations built specifically around your BELHIDE leather garments.
             </p>
 
-            <div className="mt-4 flex items-center gap-2 text-[11px] font-semibold text-brand-accent">
+            <div className="mt-4 flex items-center gap-2 text-[11px] font-accent font-semibold text-brand-accent">
               <Camera className="w-3.5 h-3.5" />
               <span>Smart Fit & Color Harmonization Engine</span>
             </div>

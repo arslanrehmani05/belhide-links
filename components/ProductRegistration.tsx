@@ -31,20 +31,20 @@ export default function ProductRegistration() {
 
         {/* Section Header */}
         <div className="flex items-center justify-between gap-2 mb-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-brand-accent text-white shadow-xs">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-accent font-bold tracking-wider uppercase bg-brand-accent text-[#1C120E] shadow-xs">
             <ShieldCheck className="w-3 h-3" />
             <span>Product Authentication</span>
           </div>
 
-          <span className="text-[10px] font-semibold tracking-wider text-brand-muted uppercase">
+          <span className="text-[10px] font-accent font-semibold tracking-wider text-brand-muted uppercase">
             Official Registry
           </span>
         </div>
 
-        <h3 className="font-serif text-2xl font-bold text-brand-primary tracking-tight mb-1 text-left">
+        <h3 className="font-heading font-serif text-2xl font-bold text-brand-primary tracking-tight mb-1 text-left">
           Register Your Belhide Piece
         </h3>
-        <p className="text-xs text-brand-muted text-left mb-5 leading-relaxed">
+        <p className="font-body text-xs text-brand-muted text-left mb-5 leading-relaxed">
           Activate your craftsmanship warranty and secure ownership history for your handcrafted outerwear.
         </p>
 
@@ -56,10 +56,10 @@ export default function ProductRegistration() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onSubmit={handleSubmit}
-              className="space-y-3.5 text-left"
+              className="space-y-3.5 text-left font-body"
             >
               <div>
-                <label className="block text-[11px] font-semibold text-brand-primary uppercase tracking-wider mb-1">
+                <label className="block text-[11px] font-accent font-semibold text-brand-primary uppercase tracking-wider mb-1">
                   Full Name *
                 </label>
                 <input
@@ -73,7 +73,7 @@ export default function ProductRegistration() {
               </div>
 
               <div>
-                <label className="block text-[11px] font-semibold text-brand-primary uppercase tracking-wider mb-1">
+                <label className="block text-[11px] font-accent font-semibold text-brand-primary uppercase tracking-wider mb-1">
                   Email Address *
                 </label>
                 <input
@@ -88,7 +88,7 @@ export default function ProductRegistration() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-[11px] font-semibold text-brand-primary uppercase tracking-wider mb-1">
+                  <label className="block text-[11px] font-accent font-semibold text-brand-primary uppercase tracking-wider mb-1">
                     Country *
                   </label>
                   <select
@@ -106,7 +106,7 @@ export default function ProductRegistration() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-semibold text-brand-primary uppercase tracking-wider mb-1">
+                  <label className="block text-[11px] font-accent font-semibold text-brand-primary uppercase tracking-wider mb-1">
                     Purchase Date *
                   </label>
                   <input
@@ -120,7 +120,7 @@ export default function ProductRegistration() {
               </div>
 
               <div>
-                <label className="block text-[11px] font-semibold text-brand-primary uppercase tracking-wider mb-1">
+                <label className="block text-[11px] font-accent font-semibold text-brand-primary uppercase tracking-wider mb-1">
                   Product Name *
                 </label>
                 <input
@@ -134,7 +134,7 @@ export default function ProductRegistration() {
               </div>
 
               <div>
-                <label className="block text-[11px] font-semibold text-brand-primary uppercase tracking-wider mb-1">
+                <label className="block text-[11px] font-accent font-semibold text-brand-primary uppercase tracking-wider mb-1">
                   Order Number <span className="text-brand-muted font-normal">(Optional)</span>
                 </label>
                 <input
@@ -148,7 +148,7 @@ export default function ProductRegistration() {
 
               <button
                 type="submit"
-                className="w-full py-3.5 px-4 mt-2 rounded-2xl bg-brand-accent text-white font-medium text-xs uppercase tracking-wider hover:bg-brand-accent-hover transition-colors shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-4 mt-2 rounded-2xl bg-brand-accent text-[#1C120E] font-accent font-semibold text-xs uppercase tracking-wider hover:bg-brand-accent-hover hover:text-black transition-colors shadow-md flex items-center justify-center gap-2"
               >
                 <FileCheck className="w-4 h-4" />
                 <span>Register Product Ownership</span>

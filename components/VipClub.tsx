@@ -22,25 +22,25 @@ export default function VipClub() {
       <div className="rounded-3xl border border-brand-strong bg-brand-card p-6 shadow-card relative overflow-hidden text-left">
         {/* Header Badge */}
         <div className="flex items-center justify-between gap-2 mb-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-brand-accent text-white shadow-xs">
-            <Crown className="w-3.5 h-3.5 text-amber-200" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-accent font-bold tracking-wider uppercase bg-brand-accent text-[#1C120E] shadow-xs">
+            <Crown className="w-3.5 h-3.5 text-[#1C120E]" />
             <span>VIP Members Club</span>
           </div>
 
-          <span className="text-[10px] font-semibold tracking-wider text-brand-muted uppercase">
+          <span className="text-[10px] font-accent font-semibold tracking-wider text-brand-muted uppercase">
             Exclusive Access
           </span>
         </div>
 
-        <h3 className="font-serif text-2xl font-bold text-brand-primary tracking-tight mb-1">
+        <h3 className="font-heading font-serif text-2xl font-bold text-brand-primary tracking-tight mb-1">
           Join the BELHIDE Inner Circle
         </h3>
-        <p className="text-xs text-brand-muted mb-4 leading-relaxed">
+        <p className="font-body text-xs text-brand-muted mb-4 leading-relaxed">
           Receive priority invitations to private drops, seasonal lookbooks, and bespoke member privileges.
         </p>
 
         {/* Benefits Grid */}
-        <div className="space-y-2 mb-5">
+        <div className="space-y-2 mb-5 font-body">
           {vipBenefits.map((benefit, idx) => (
             <div key={idx} className="flex items-start gap-2 text-xs text-brand-primary">
               <CheckCircle2 className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
@@ -57,10 +57,10 @@ export default function VipClub() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onSubmit={handleSubmit}
-              className="space-y-3 pt-2 border-t border-brand-subtle"
+              className="space-y-3 pt-2 border-t border-brand-subtle font-body"
             >
               <div>
-                <label className="block text-[11px] font-semibold text-brand-primary uppercase tracking-wider mb-1">
+                <label className="block text-[11px] font-accent font-semibold text-brand-primary uppercase tracking-wider mb-1">
                   Email Address *
                 </label>
                 <input
@@ -74,7 +74,7 @@ export default function VipClub() {
               </div>
 
               <div>
-                <label className="block text-[11px] font-semibold text-brand-primary uppercase tracking-wider mb-1">
+                <label className="block text-[11px] font-accent font-semibold text-brand-primary uppercase tracking-wider mb-1">
                   Country *
                 </label>
                 <select
@@ -92,7 +92,7 @@ export default function VipClub() {
 
               <button
                 type="submit"
-                className="w-full py-3.5 px-4 rounded-2xl bg-brand-accent text-white font-medium text-xs uppercase tracking-wider hover:bg-brand-accent-hover transition-colors shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-4 rounded-2xl bg-brand-accent text-[#1C120E] font-accent font-semibold text-xs uppercase tracking-wider hover:bg-brand-accent-hover hover:text-black transition-colors shadow-md flex items-center justify-center gap-2"
               >
                 <span>Unlock VIP Member Access</span>
                 <ArrowRight className="w-4 h-4" />

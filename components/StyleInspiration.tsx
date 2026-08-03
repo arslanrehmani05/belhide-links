@@ -25,15 +25,15 @@ export default function StyleInspiration() {
   return (
     <section className="w-full max-w-md mx-auto px-4 mb-8 text-left">
       <div className="flex items-center justify-between gap-2 mb-3">
-        <h3 className="font-serif text-2xl font-bold text-brand-primary tracking-tight">
+        <h3 className="font-heading font-serif text-2xl font-bold text-brand-primary tracking-tight">
           Style & Inspiration
         </h3>
-        <span className="text-[10px] font-bold tracking-wider uppercase text-brand-accent">
+        <span className="text-[10px] font-accent font-bold tracking-wider uppercase text-brand-accent">
           Visual Lookbooks
         </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 font-body">
         {styleLinks.map((item, idx) => {
           const isFull = idx === 0;
 
@@ -51,7 +51,7 @@ export default function StyleInspiration() {
               }`}
             >
               {item.badge && (
-                <span className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase bg-brand-primary text-brand-accent border border-brand-subtle">
+                <span className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[9px] font-accent font-bold tracking-wider uppercase bg-brand-accent text-[#1C120E] border border-brand-subtle">
                   {item.badge}
                 </span>
               )}
@@ -61,16 +61,16 @@ export default function StyleInspiration() {
                   {getIcon(item.platform)}
                 </div>
 
-                <h4 className="font-semibold text-xs sm:text-sm text-brand-primary group-hover:text-brand-accent transition-colors leading-tight">
+                <h4 className="font-subheading font-semibold text-xs sm:text-sm text-brand-primary group-hover:text-brand-accent transition-colors leading-tight">
                   {item.title}
                 </h4>
-                <p className="text-[11px] text-brand-muted mt-1 leading-snug font-normal">
+                <p className="font-body text-[11px] text-brand-muted mt-1 leading-snug font-normal">
                   {item.subtitle}
                 </p>
               </div>
 
               <div className="mt-3 flex items-center justify-between text-brand-muted group-hover:text-brand-primary pt-2 border-t border-brand-subtle/50">
-                <span className="text-[10px] font-medium tracking-wide uppercase">
+                <span className="text-[10px] font-accent font-semibold tracking-wide uppercase">
                   View Board
                 </span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 text-brand-accent" />

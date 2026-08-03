@@ -12,10 +12,10 @@ export default function CareCenter() {
     <section className="w-full max-w-md mx-auto px-4 mb-8 text-left">
       <div className="flex items-center justify-between gap-2 mb-3">
         <div>
-          <span className="text-[10px] font-bold tracking-wider uppercase text-brand-accent block">
+          <span className="text-[10px] font-accent font-bold tracking-wider uppercase text-brand-accent block">
             The Leather Library
           </span>
-          <h3 className="font-serif text-2xl font-bold text-brand-primary tracking-tight">
+          <h3 className="font-heading font-serif text-2xl font-bold text-brand-primary tracking-tight">
             Leather Care Center
           </h3>
         </div>
@@ -24,7 +24,7 @@ export default function CareCenter() {
         </div>
       </div>
 
-      <div className="space-y-2.5">
+      <div className="space-y-2.5 font-body">
         {careArticles.map((article, idx) => (
           <motion.button
             key={article.id}
@@ -35,13 +35,13 @@ export default function CareCenter() {
             className="group w-full p-3.5 rounded-2xl border border-brand-subtle bg-brand-card hover:border-brand-accent transition-all text-left flex items-center justify-between gap-3 shadow-xs active:scale-[0.99]"
           >
             <div className="space-y-0.5 overflow-hidden">
-              <span className="text-[9px] font-bold uppercase tracking-wider text-brand-accent block">
+              <span className="text-[9px] font-accent font-bold uppercase tracking-wider text-brand-accent block">
                 {article.category}
               </span>
-              <h4 className="font-semibold text-xs sm:text-sm text-brand-primary truncate group-hover:text-brand-accent transition-colors">
+              <h4 className="font-subheading font-semibold text-xs sm:text-sm text-brand-primary truncate group-hover:text-brand-accent transition-colors">
                 {article.title}
               </h4>
-              <p className="text-[11px] text-brand-muted truncate font-normal">
+              <p className="font-body text-[11px] text-brand-muted truncate font-normal">
                 {article.summary}
               </p>
             </div>
@@ -75,10 +75,10 @@ export default function CareCenter() {
               {/* Header */}
               <div className="flex items-start justify-between pb-4 border-b border-brand-subtle">
                 <div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-accent block">
+                  <span className="text-[10px] font-accent font-bold uppercase tracking-wider text-brand-accent block">
                     {selectedArticle.category} Article
                   </span>
-                  <h3 className="font-serif text-xl font-bold text-brand-primary">
+                  <h3 className="font-heading font-serif text-xl font-bold text-brand-primary">
                     {selectedArticle.title}
                   </h3>
                 </div>
@@ -92,7 +92,7 @@ export default function CareCenter() {
               </div>
 
               {/* Article Content */}
-              <div className="mt-4 space-y-4">
+              <div className="mt-4 space-y-4 font-body">
                 <p className="text-xs text-brand-muted italic bg-brand-primary/60 p-3 rounded-xl border border-brand-subtle">
                   {selectedArticle.summary}
                 </p>
@@ -110,7 +110,7 @@ export default function CareCenter() {
                   <div className="p-3.5 rounded-2xl bg-brand-accent/10 border border-brand-strong flex items-start gap-2 text-xs text-brand-primary">
                     <ShieldAlert className="w-4 h-4 text-brand-accent shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-brand-accent uppercase tracking-wider block text-[10px]">
+                      <span className="font-accent font-bold text-brand-accent uppercase tracking-wider block text-[10px]">
                         Artisan Pro-Tip
                       </span>
                       <span>{selectedArticle.proTip}</span>
@@ -122,7 +122,7 @@ export default function CareCenter() {
               <div className="mt-6 pt-3 border-t border-brand-subtle">
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="w-full py-3 rounded-2xl bg-brand-accent text-white font-medium text-xs uppercase tracking-wider hover:bg-brand-accent-hover transition-colors shadow-sm"
+                  className="w-full py-3 rounded-2xl bg-brand-accent text-[#1C120E] font-accent font-semibold text-xs uppercase tracking-wider hover:bg-brand-accent-hover hover:text-black transition-colors shadow-sm"
                 >
                   Close Article
                 </button>

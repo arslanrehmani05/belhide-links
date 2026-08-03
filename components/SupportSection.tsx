@@ -23,15 +23,15 @@ export default function SupportSection() {
   return (
     <section className="w-full max-w-md mx-auto px-4 mb-8 text-left">
       <div className="flex items-center justify-between gap-2 mb-3">
-        <h3 className="font-serif text-2xl font-bold text-brand-primary tracking-tight">
+        <h3 className="font-heading font-serif text-2xl font-bold text-brand-primary tracking-tight">
           Customer Support
         </h3>
-        <span className="text-[10px] font-bold tracking-wider uppercase text-brand-accent">
+        <span className="text-[10px] font-accent font-bold tracking-wider uppercase text-brand-accent">
           Help Desk
         </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5">
+      <div className="grid grid-cols-2 gap-2.5 font-body">
         {supportLinks.map((item, idx) => (
           <motion.a
             key={item.id}
@@ -48,16 +48,16 @@ export default function SupportSection() {
                 {getIcon(item.icon)}
               </div>
 
-              <h4 className="font-semibold text-xs text-brand-primary group-hover:text-brand-accent transition-colors leading-tight">
+              <h4 className="font-subheading font-semibold text-xs text-brand-primary group-hover:text-brand-accent transition-colors leading-tight">
                 {item.title}
               </h4>
-              <p className="text-[10px] text-brand-muted mt-1 leading-snug font-normal">
+              <p className="font-body text-[10px] text-brand-muted mt-1 leading-snug font-normal">
                 {item.subtitle}
               </p>
             </div>
 
             <div className="mt-2.5 flex items-center justify-between text-brand-muted group-hover:text-brand-primary pt-2 border-t border-brand-subtle/50">
-              <span className="text-[9px] font-medium tracking-wide uppercase">
+              <span className="text-[9px] font-accent font-semibold tracking-wide uppercase">
                 Access
               </span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 text-brand-accent" />

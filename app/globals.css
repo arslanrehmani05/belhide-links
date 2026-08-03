@@ -1,62 +1,90 @@
 @import "tailwindcss";
 
+@theme {
+  --font-inter: var(--font-inter), system-ui, sans-serif;
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-cormorant: var(--font-cormorant), Georgia, serif;
+  --font-raleway: var(--font-raleway), sans-serif;
+  --color-bg-brand: #1C120E;
+  --color-text-brand: #F5F4F2;
+}
+
 @layer base {
   :root {
-    --bg-primary: #F8F6F2;
-    --bg-card: #FFFFFF;
-    --bg-card-hover: #F2EFE9;
-    --text-primary: #120E0C;
-    --text-muted: rgba(18, 14, 12, 0.65);
-    --accent-tan: #B86638;
-    --accent-tan-hover: #9E5227;
-    --border-subtle: rgba(18, 14, 12, 0.09);
-    --border-strong: rgba(184, 102, 56, 0.35);
-    --shadow-card: 0 4px 20px -2px rgba(18, 14, 12, 0.04), 0 2px 6px -1px rgba(18, 14, 12, 0.02);
-    --shadow-hero: 0 14px 35px -4px rgba(184, 102, 56, 0.2), 0 4px 14px -2px rgba(18, 14, 12, 0.06);
+    --bg-primary: #1C120E;
+    --bg-card: #251B16;
+    --bg-card-hover: #30231C;
+    --text-primary: #F5F4F2;
+    --text-muted: rgba(245, 244, 242, 0.65);
+    --text-heading: #000000;
+    --link-color: #F5F4F2;
+    --link-hover: #000000;
+    --accent-brand: #F5F4F2;
+    --accent-brand-hover: #FFFFFF;
+    --border-color: #000000;
+    --border-subtle: rgba(245, 244, 242, 0.12);
+    --border-strong: rgba(245, 244, 242, 0.25);
+    --shadow-color: #000000;
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.6);
+    --shadow-hero: 0 16px 48px rgba(0, 0, 0, 0.7);
   }
 
   [data-theme="espresso"] {
-    --bg-primary: #0E0C0A;
-    --bg-card: #181411;
-    --bg-card-hover: #221C18;
-    --text-primary: #F8F6F2;
-    --text-muted: rgba(248, 246, 242, 0.65);
-    --accent-tan: #C87848;
-    --accent-tan-hover: #DA8654;
-    --border-subtle: rgba(248, 246, 242, 0.11);
-    --border-strong: rgba(200, 120, 72, 0.4);
-    --shadow-card: 0 4px 24px -2px rgba(0, 0, 0, 0.5);
-    --shadow-hero: 0 14px 40px -4px rgba(0, 0, 0, 0.7), 0 0 24px 0 rgba(200, 120, 72, 0.15);
+    --bg-primary: #1C120E;
+    --bg-card: #251B16;
+    --bg-card-hover: #30231C;
+    --text-primary: #F5F4F2;
+    --text-muted: rgba(245, 244, 242, 0.65);
+    --link-color: #F5F4F2;
+    --link-hover: #000000;
+    --border-subtle: rgba(245, 244, 242, 0.12);
+    --border-strong: rgba(245, 244, 242, 0.25);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.6);
   }
 
   [data-theme="ivory"] {
-    --bg-primary: #FAFAFA;
+    --bg-primary: #F5F4F2;
     --bg-card: #FFFFFF;
-    --bg-card-hover: #F3F3F3;
-    --text-primary: #0E0C0A;
-    --text-muted: rgba(14, 12, 10, 0.6);
-    --accent-tan: #964B24;
-    --accent-tan-hover: #7D3C1B;
-    --border-subtle: rgba(14, 12, 10, 0.08);
-    --border-strong: rgba(150, 75, 36, 0.3);
-    --shadow-card: 0 2px 12px -1px rgba(0, 0, 0, 0.04);
-    --shadow-hero: 0 8px 24px -2px rgba(0, 0, 0, 0.08);
+    --bg-card-hover: #EBE8E3;
+    --text-primary: #1C120E;
+    --text-muted: rgba(28, 18, 14, 0.65);
+    --link-color: #1C120E;
+    --link-hover: #000000;
+    --border-subtle: rgba(0, 0, 0, 0.12);
+    --border-strong: rgba(0, 0, 0, 0.25);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
   -webkit-tap-highlight-color: transparent;
 }
 
-.font-serif {
-  font-family: var(--font-serif), Georgia, serif;
+/* Typography Utility Classes */
+.font-sans,
+.font-body {
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
+.font-subheading {
+  font-family: var(--font-manrope), sans-serif;
+}
+
+.font-serif,
+.font-heading {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-accent {
+  font-family: var(--font-raleway), sans-serif;
+}
+
+/* Brand Color Utility Classes */
 .bg-brand-primary {
   background-color: var(--bg-primary);
 }
@@ -66,11 +94,13 @@ body {
 }
 
 .bg-brand-accent {
-  background-color: var(--accent-tan);
+  background-color: var(--text-primary);
+  color: #1C120E;
 }
 
 .bg-brand-accent-hover:hover {
-  background-color: var(--accent-tan-hover);
+  background-color: #FFFFFF;
+  color: #000000;
 }
 
 .text-brand-primary {
@@ -82,7 +112,7 @@ body {
 }
 
 .text-brand-accent {
-  color: var(--accent-tan);
+  color: var(--text-primary);
 }
 
 .border-brand-subtle {
@@ -95,7 +125,7 @@ body {
 
 /* Subtle leather texture overlay */
 .leather-texture {
-  background-image: radial-gradient(rgba(18, 14, 12, 0.035) 1px, transparent 0);
+  background-image: radial-gradient(rgba(245, 244, 242, 0.04) 1px, transparent 0);
   background-size: 16px 16px;
 }
 
@@ -107,6 +137,7 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-tan);
+  background: rgba(245, 244, 242, 0.3);
   border-radius: 9999px;
 }
+

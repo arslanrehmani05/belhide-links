@@ -44,17 +44,17 @@ export default function CustomerReviews() {
     <section className="w-full max-w-md mx-auto px-4 mb-8 text-left">
       <div className="flex items-center justify-between gap-2 mb-3">
         <div>
-          <span className="text-[10px] font-bold tracking-wider uppercase text-brand-accent block">
+          <span className="text-[10px] font-accent font-bold tracking-wider uppercase text-brand-accent block">
             Customer Feedback
           </span>
-          <h3 className="font-serif text-2xl font-bold text-brand-primary tracking-tight">
+          <h3 className="font-heading font-serif text-2xl font-bold text-brand-primary tracking-tight">
             Verified Owner Reviews
           </h3>
         </div>
 
         <button
           onClick={() => setShowAddForm(!showAddForm)}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-brand-accent text-white hover:bg-brand-accent-hover transition-colors shadow-xs"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-accent font-semibold bg-brand-accent text-[#1C120E] hover:bg-brand-accent-hover hover:text-black transition-colors shadow-xs"
         >
           <Plus className="w-3.5 h-3.5" />
           <span>Write Review</span>
@@ -69,14 +69,14 @@ export default function CustomerReviews() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             onSubmit={handleAddReview}
-            className="mb-4 p-4 rounded-2xl border border-brand-strong bg-brand-card space-y-3 shadow-sm overflow-hidden"
+            className="mb-4 p-4 rounded-2xl border border-brand-strong bg-brand-card space-y-3 shadow-sm overflow-hidden font-body"
           >
-            <h4 className="font-semibold text-xs text-brand-primary uppercase tracking-wider">
+            <h4 className="font-subheading font-semibold text-xs text-brand-primary uppercase tracking-wider">
               Submit Your Product Experience
             </h4>
 
             <div>
-              <label className="block text-[10px] font-semibold text-brand-muted uppercase tracking-wider mb-1">
+              <label className="block text-[10px] font-accent font-semibold text-brand-muted uppercase tracking-wider mb-1">
                 Your Rating
               </label>
               <div className="flex items-center gap-1 text-amber-500">
@@ -147,7 +147,7 @@ export default function CustomerReviews() {
             ) : (
               <button
                 type="submit"
-                className="w-full py-2.5 rounded-xl bg-brand-accent text-white font-medium text-xs uppercase tracking-wider hover:bg-brand-accent-hover transition-colors shadow-xs flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 rounded-xl bg-brand-accent text-[#1C120E] font-accent font-semibold text-xs uppercase tracking-wider hover:bg-brand-accent-hover hover:text-black transition-colors shadow-xs flex items-center justify-center gap-1.5"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>Publish Review</span>
@@ -158,7 +158,7 @@ export default function CustomerReviews() {
       </AnimatePresence>
 
       {/* Review List */}
-      <div className="space-y-3">
+      <div className="space-y-3 font-body">
         {reviews.map((rev) => (
           <div
             key={rev.id}
@@ -166,7 +166,7 @@ export default function CustomerReviews() {
           >
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-xs text-brand-primary">{rev.author}</span>
+                <span className="font-subheading font-semibold text-xs text-brand-primary">{rev.author}</span>
                 <span className="text-[10px] text-brand-muted">({rev.location})</span>
               </div>
 
@@ -177,10 +177,10 @@ export default function CustomerReviews() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between text-[10px] text-brand-accent font-medium">
+            <div className="flex items-center justify-between text-[10px] text-brand-accent font-accent font-semibold">
               <span>{rev.productName}</span>
               {rev.verifiedPurchase && (
-                <span className="flex items-center gap-1 text-emerald-600">
+                <span className="flex items-center gap-1 text-emerald-600 font-normal">
                   <CheckCircle2 className="w-3 h-3" />
                   <span>Verified Owner</span>
                 </span>

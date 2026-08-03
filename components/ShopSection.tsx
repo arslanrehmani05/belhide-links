@@ -31,16 +31,16 @@ export default function ShopSection({ activeMarket }: ShopSectionProps) {
   return (
     <section className="w-full max-w-md mx-auto px-4 mb-8 text-left">
       <div className="flex items-center justify-between gap-2 mb-3">
-        <h3 className="font-serif text-2xl font-bold text-brand-primary tracking-tight">
+        <h3 className="font-heading font-serif text-2xl font-bold text-brand-primary tracking-tight">
           Shop BELHIDE Collections
         </h3>
-        <span className="text-[11px] font-medium text-brand-muted flex items-center gap-1">
+        <span className="text-[11px] font-accent font-medium text-brand-muted flex items-center gap-1">
           <span>{activeMarket.flag}</span>
           <span>{activeMarket.name}</span>
         </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-3 font-body">
         {shopCategories.map((cat, idx) => (
           <motion.a
             key={cat.id}
@@ -53,7 +53,7 @@ export default function ShopSection({ activeMarket }: ShopSectionProps) {
             className="group relative flex flex-col justify-between p-4 rounded-2xl border border-brand-subtle bg-brand-card hover:border-brand-accent transition-all duration-300 transform active:scale-[0.98] shadow-xs"
           >
             {cat.badge && (
-              <span className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase bg-brand-accent text-white shadow-xs">
+              <span className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[9px] font-accent font-bold tracking-wider uppercase bg-brand-accent text-[#1C120E] shadow-xs">
                 {cat.badge}
               </span>
             )}
@@ -63,16 +63,16 @@ export default function ShopSection({ activeMarket }: ShopSectionProps) {
                 {getIcon(cat.icon)}
               </div>
 
-              <h4 className="font-semibold text-sm text-brand-primary leading-tight group-hover:text-brand-accent transition-colors">
+              <h4 className="font-subheading font-semibold text-sm text-brand-primary leading-tight group-hover:text-brand-accent transition-colors">
                 {cat.title}
               </h4>
-              <p className="text-[11px] text-brand-muted mt-1 leading-snug font-normal">
+              <p className="font-body text-[11px] text-brand-muted mt-1 leading-snug font-normal">
                 {cat.subtitle}
               </p>
             </div>
 
             <div className="mt-3 flex items-center justify-between text-brand-muted group-hover:text-brand-primary pt-2 border-t border-brand-subtle/50">
-              <span className="text-[10px] font-medium tracking-wide uppercase">
+              <span className="text-[10px] font-accent font-semibold tracking-wide uppercase">
                 Explore
               </span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 text-brand-accent" />

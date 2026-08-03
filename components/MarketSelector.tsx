@@ -27,10 +27,10 @@ export default function MarketSelector({ activeMarket, onSelectMarket }: MarketS
               <Globe className="w-4 h-4" />
             </div>
             <div>
-              <span className="text-[10px] font-semibold tracking-wider text-brand-muted uppercase block">
+              <span className="text-[10px] font-accent font-semibold tracking-wider text-brand-muted uppercase block">
                 Storefront Region
               </span>
-              <span className="text-xs font-semibold text-brand-primary flex items-center gap-1.5">
+              <span className="text-xs font-body font-semibold text-brand-primary flex items-center gap-1.5">
                 <span>{activeMarket.flag}</span>
                 <span>{activeMarket.name}</span>
                 <span className="text-[10px] font-normal text-brand-muted">({activeMarket.currency})</span>
@@ -40,7 +40,7 @@ export default function MarketSelector({ activeMarket, onSelectMarket }: MarketS
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-medium bg-brand-primary hover:bg-brand-strong/10 border border-brand-subtle transition-all text-brand-primary"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-accent font-semibold bg-brand-primary hover:bg-brand-card-hover border border-brand-subtle transition-all text-brand-primary"
           >
             <span>Change</span>
             <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
@@ -53,7 +53,7 @@ export default function MarketSelector({ activeMarket, onSelectMarket }: MarketS
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="mt-3 pt-3 border-t border-brand-subtle grid grid-cols-2 gap-2"
+            className="mt-3 pt-3 border-t border-brand-subtle grid grid-cols-2 gap-2 font-body"
           >
             {markets.map((m) => (
               <button
@@ -64,14 +64,14 @@ export default function MarketSelector({ activeMarket, onSelectMarket }: MarketS
                 }}
                 className={`flex items-center gap-2 p-2 rounded-xl text-left text-xs transition-all border ${
                   activeMarket.id === m.id
-                    ? "bg-brand-accent text-white border-brand-accent font-semibold shadow-xs"
+                    ? "bg-brand-accent text-[#1C120E] border-brand-accent font-semibold shadow-xs"
                     : "bg-brand-primary hover:bg-brand-card text-brand-primary border-brand-subtle"
                 }`}
               >
                 <span className="text-base">{m.flag}</span>
                 <div className="overflow-hidden">
-                  <p className="truncate leading-tight">{m.name}</p>
-                  <p className={`text-[10px] ${activeMarket.id === m.id ? "text-white/80" : "text-brand-muted"}`}>
+                  <p className="truncate leading-tight font-medium">{m.name}</p>
+                  <p className={`text-[10px] ${activeMarket.id === m.id ? "text-[#1C120E]/80 font-medium" : "text-brand-muted"}`}>
                     {m.currency}
                   </p>
                 </div>
