@@ -33,8 +33,7 @@ export const metadata: Metadata = {
   description: "Official product links, store regions, leather care guides, and custom bespoke orders for Belhide handcrafted leather outerwear.",
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/icon.png", type: "image/png" },
       { url: "/favicon.ico" },
     ],
     apple: "/icon.png",

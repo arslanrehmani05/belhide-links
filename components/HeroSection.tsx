@@ -30,20 +30,14 @@ export default function HeroSection({ currentTheme, onThemeChange, onRegisterCli
         <span>{brandConfig.physicalTagBadge}</span>
       </div>
 
-      {/* Official Brand Logo Emblem */}
-      <div className="mb-3">
+      {/* Official Custom BELHIDE Wordmark Logo Image */}
+      <div className="mb-4 space-y-2">
         <img
           src="/logo.png"
-          alt="BELHIDE Emblem"
-          className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto shadow-md border-2 border-brand-strong/60 object-cover"
+          alt="BELHIDE Official Logo"
+          className="h-14 sm:h-18 w-auto mx-auto object-contain rounded-xl shadow-xs"
         />
-      </div>
-
-      {/* Brand Wordmark Logo */}
-      <div className="space-y-1.5 mb-3">
-        <h1 className="font-serif font-heading text-4xl sm:text-5xl font-bold tracking-widest text-brand-primary uppercase">
-          {brandConfig.wordmark}
-        </h1>
+        <h1 className="sr-only">BELHIDE</h1>
         <div className="h-0.5 w-16 mx-auto bg-brand-accent rounded-full opacity-80" />
       </div>
 
