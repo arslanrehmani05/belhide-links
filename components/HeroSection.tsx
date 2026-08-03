@@ -31,14 +31,14 @@ export default function HeroSection({ currentTheme, onThemeChange, onRegisterCli
       </div>
 
       {/* Official Custom BELHIDE Wordmark Logo Image */}
-      <div className="mb-4 space-y-2">
+      <div className="my-4 w-full flex flex-col items-center justify-center">
         <img
           src="/logo.png"
           alt="BELHIDE Official Logo"
-          className="h-14 sm:h-18 w-auto mx-auto object-contain rounded-xl shadow-xs"
+          className="h-12 sm:h-16 max-w-[280px] sm:max-w-[360px] w-auto object-contain mix-blend-screen"
         />
         <h1 className="sr-only">BELHIDE</h1>
-        <div className="h-0.5 w-16 mx-auto bg-brand-accent rounded-full opacity-80" />
+        <div className="h-0.5 w-16 mx-auto bg-brand-accent rounded-full opacity-80 mt-3" />
       </div>
 
       {/* Headline & Subheading */}
