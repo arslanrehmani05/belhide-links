@@ -31,12 +31,23 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: "Belhide Links — Handcrafted Leather Goods",
   description: "Official product links, store regions, leather care guides, and custom bespoke orders for Belhide handcrafted leather outerwear.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Belhide",
+  },
   icons: {
     icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon.png", type: "image/png" },
       { url: "/favicon.ico" },
     ],
-    apple: "/icon.png",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/icon.png" },
+    ],
   },
   openGraph: {
     title: "Belhide Links — Handcrafted Leather Goods",
@@ -68,6 +79,11 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Belhide" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="Belhide" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="antialiased font-sans selection:bg-[#F5F4F2] selection:text-[#1C120E]">
         {children}

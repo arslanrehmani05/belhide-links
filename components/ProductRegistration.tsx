@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, Sparkles, CheckCircle2, QrCode, Lock, FileCheck } from "lucide-react";
+import { ShieldCheck, Sparkles, CheckCircle2, QrCode, Lock, FileCheck, WifiOff } from "lucide-react";
+import { usePwa } from "@/lib/use-pwa";
 
 export default function ProductRegistration() {
+  const pwa = usePwa();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,10 +17,24 @@ export default function ProductRegistration() {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isOfflineSaved, setIsOfflineSaved] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.productName) {
+      if (!pwa.isOnline) {
+        pwa.queueOfflineRegistration({
+          serialNumber: formData.orderNumber || "SN-" + Math.floor(100000 + Math.random() * 900000),
+          ownerName: formData.name,
+          email: formData.email,
+          garmentType: formData.productName,
+          purchaseDate: formData.purchaseDate,
+        });
+        setIsOfflineSaved(true);
+      } else {
+        pwa.triggerHaptic("success");
+        pwa.setBadge(pwa.badgeCount + 1);
+      }
       setIsSubmitted(true);
     }
   };
@@ -172,6 +188,12 @@ export default function ProductRegistration() {
                 <p className="text-xs text-brand-muted max-w-xs mx-auto leading-relaxed">
                   Thank you, <span className="font-semibold text-brand-primary">{formData.name}</span>. Your registration for <span className="font-semibold text-brand-primary">{formData.productName}</span> is confirmed.
                 </p>
+                {isOfflineSaved && (
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 mt-1 rounded-full bg-amber-950/80 border border-amber-700/50 text-[10px] text-amber-300">
+                    <WifiOff className="w-3 h-3 text-amber-400" />
+                    <span>Saved to PWA Offline Queue — Auto Syncing on reconnect</span>
+                  </div>
+                )}
               </div>
 
               {/* Digital Passport Preview Badge */}

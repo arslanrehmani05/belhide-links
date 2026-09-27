@@ -1,0 +1,80 @@
+import type { MetadataRoute } from "next";
+
+export default function manifest(): MetadataRoute.Manifest {
+  return {
+    name: "Belhide — Handcrafted Leather Goods",
+    short_name: "Belhide",
+    description: "Official product links, store regions, leather care guides, and custom bespoke orders for Belhide handcrafted leather outerwear.",
+    start_url: "/",
+    display: "standalone",
+    display_override: ["standalone", "minimal-ui", "window-controls-overlay"],
+    background_color: "#1C120E",
+    theme_color: "#1C120E",
+    orientation: "portrait",
+    scope: "/",
+    lang: "en",
+    dir: "ltr",
+    categories: ["shopping", "lifestyle", "fashion", "luxury"],
+    icons: [
+      {
+        src: "/icon.svg",
+        sizes: "512x512",
+        type: "image/svg+xml",
+        purpose: "any",
+      },
+      {
+        src: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/maskable-icon.png",
+        sizes: "512x512",
+        type: "image/png",
+        purpose: "maskable",
+      },
+      {
+        src: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    shortcuts: [
+      {
+        name: "Shop Collection",
+        short_name: "Shop",
+        description: "Browse seasonal drops and iconic handcrafted leather jackets",
+        url: "/#shop-categories",
+        icons: [{ src: "/icon-192.png", sizes: "192x192" }],
+      },
+      {
+        name: "Leather Care Center",
+        short_name: "Care Center",
+        description: "Read essential leather maintenance & cleaning guides offline",
+        url: "/#care-center",
+        icons: [{ src: "/icon-192.png", sizes: "192x192" }],
+      },
+      {
+        name: "Register Garment",
+        short_name: "Register",
+        description: "Register product for warranty & authenticity certificate",
+        url: "/#product-registration",
+        icons: [{ src: "/icon-192.png", sizes: "192x192" }],
+      },
+      {
+        name: "VIP Members Club",
+        short_name: "VIP Club",
+        description: "Access exclusive benefits and private sample sales",
+        url: "/#vip-club",
+        icons: [{ src: "/icon-192.png", sizes: "192x192" }],
+      },
+    ],
+  };
+}

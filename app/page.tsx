@@ -14,6 +14,7 @@ import CustomerReviews from "@/components/CustomerReviews";
 import ReferralTeaser from "@/components/ReferralTeaser";
 import SupportSection from "@/components/SupportSection";
 import Footer from "@/components/Footer";
+import PwaWing from "@/components/PwaWing";
 import { brandConfig, markets, Market, ThemeVariant } from "@/lib/links-config";
 import { useQrParams } from "@/lib/use-qr-params";
 
@@ -38,70 +39,74 @@ function CustomerHubContent() {
   };
 
   return (
-    <main className="min-h-screen relative flex flex-col items-center justify-between selection:bg-brand-accent selection:text-white transition-colors duration-300">
-      {/* Background ambient lighting accents */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-gradient-to-b from-brand-accent/10 via-transparent to-transparent pointer-events-none -z-10" />
+    <PwaWing>
+      <main className="min-h-screen relative flex flex-col items-center justify-between selection:bg-brand-accent selection:text-white transition-colors duration-300">
+        {/* Background ambient lighting accents */}
+        <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-gradient-to-b from-brand-accent/10 via-transparent to-transparent pointer-events-none -z-10" />
 
-      <div className="w-full max-w-lg mx-auto flex-1 flex flex-col justify-between">
-        <div>
-          {/* Hero Section with logo, headline, dual buttons & theme switcher */}
-          <HeroSection
-            currentTheme={currentTheme}
-            onThemeChange={(newTheme) => setCurrentTheme(newTheme)}
-            onRegisterClick={scrollToRegistration}
-          />
+        <div className="w-full max-w-lg mx-auto flex-1 flex flex-col justify-between">
+          <div>
+            {/* Hero Section with logo, headline, dual buttons & theme switcher */}
+            <HeroSection
+              currentTheme={currentTheme}
+              onThemeChange={(newTheme) => setCurrentTheme(newTheme)}
+              onRegisterClick={scrollToRegistration}
+            />
 
-          {/* Dynamic QR Parameter Personalization Banner */}
-          <QrPersonalizationBanner params={qrParams} />
+            {/* Dynamic QR Parameter Personalization Banner */}
+            <QrPersonalizationBanner params={qrParams} />
 
-          {/* Storefront Region Selector */}
-          <MarketSelector
-            activeMarket={activeMarket}
-            onSelectMarket={(m) => setActiveMarket(m)}
-          />
+            {/* Storefront Region Selector */}
+            <MarketSelector
+              activeMarket={activeMarket}
+              onSelectMarket={(m) => setActiveMarket(m)}
+            />
 
-          {/* Product Registration Section */}
-          <ProductRegistration />
+            {/* Product Registration Section */}
+            <ProductRegistration />
 
-          {/* VIP Members Club Section */}
-          <VipClub />
+            {/* VIP Members Club Section */}
+            <VipClub />
 
-          {/* Shop BELHIDE Category Bento Grid */}
-          <ShopSection activeMarket={activeMarket} />
+            {/* Shop BELHIDE Category Bento Grid */}
+            <ShopSection activeMarket={activeMarket} />
 
-          {/* Leather Care Center */}
-          <CareCenter />
+            {/* Leather Care Center */}
+            <CareCenter />
 
-          {/* Style & Inspiration Lookbooks */}
-          <StyleInspiration />
+            {/* Style & Inspiration Lookbooks */}
+            <StyleInspiration />
 
-          {/* AI Style Advisor Teaser */}
-          <AiStyleAdvisor />
+            {/* AI Style Advisor Teaser */}
+            <AiStyleAdvisor />
 
-          {/* Verified Customer Reviews */}
-          <CustomerReviews />
+            {/* Verified Customer Reviews */}
+            <CustomerReviews />
 
-          {/* Refer a Friend Teaser */}
-          <ReferralTeaser />
+            {/* Refer a Friend Teaser */}
+            <ReferralTeaser />
 
-          {/* Customer Support Quick Links */}
-          <SupportSection />
+            {/* Customer Support Quick Links */}
+            <SupportSection />
+          </div>
+
+          {/* Refined Legal & Brand Footer */}
+          <Footer />
         </div>
-
-        {/* Refined Legal & Brand Footer */}
-        <Footer />
-      </div>
-    </main>
+      </main>
+    </PwaWing>
   );
 }
 
 export default function Home() {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center text-xs font-serif tracking-widest uppercase text-brand-muted">
-        Loading BELHIDE Customer Hub...
-      </div>
-    }>
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center text-xs font-serif tracking-widest uppercase text-brand-muted">
+          Loading BELHIDE Customer Hub...
+        </div>
+      }
+    >
       <CustomerHubContent />
     </Suspense>
   );
