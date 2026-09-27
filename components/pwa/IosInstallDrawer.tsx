@@ -58,13 +58,13 @@ export default function IosInstallDrawer({ isOpen, onClose, onHaptic }: IosInsta
                 <span>iOS 27 PWA Experience</span>
               </div>
               <h3 className="text-lg font-serif font-semibold tracking-wide text-white">
-                Install BELHIDE App on iPhone
+                Install B Links App on iPhone
               </h3>
             </div>
           </div>
 
           <p className="text-xs text-[#A8988C] mb-6 leading-relaxed">
-            Experience BELHIDE as a standalone iOS application. Instant offline access to leather care guides, digital warranty registration, and push notification drop alerts.
+            Experience B Links as a standalone iOS application. Instant offline access to leather care guides, digital warranty registration, and push notification drop alerts.
           </p>
 
           {/* Step-by-Step iOS Safari Instructions */}
@@ -112,7 +112,7 @@ export default function IosInstallDrawer({ isOpen, onClose, onHaptic }: IosInsta
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
                 </div>
                 <p className="text-[#8C7A6D]">
-                  Tap <strong className="text-emerald-300 font-normal">Add</strong> in the top-right corner to launch BELHIDE from your home screen.
+                  Tap <strong className="text-emerald-300 font-normal">Add</strong> in the top-right corner to launch B Links from your home screen.
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function IosInstallDrawer({ isOpen, onClose, onHaptic }: IosInsta
                 <img src="/icon.svg" alt="App Icon" className="w-7 h-7" />
               </div>
               <div className="text-left">
-                <div className="text-xs font-serif font-semibold text-white">BELHIDE</div>
+                <div className="text-xs font-serif font-semibold text-white">B Links</div>
                 <div className="text-[10px] text-[#A8988C]">Handcrafted Leather Goods</div>
               </div>
             </div>

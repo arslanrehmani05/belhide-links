@@ -64,11 +64,11 @@ export default function InstallBanner({
             {/* Left App Icon & Info */}
             <div className="flex items-center gap-3 shrink-0">
               <div className="w-10 h-10 rounded-xl bg-[#2A1D17] border border-[#4A372C] flex items-center justify-center overflow-hidden shadow-inner">
-                <img src="/icon.svg" alt="Belhide Icon" className="w-6 h-6 object-contain" />
+                <img src="/icon.svg" alt="B Links Icon" className="w-6 h-6 object-contain" />
               </div>
               <div className="text-left">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-xs font-serif font-semibold tracking-wide text-white">BELHIDE App</span>
+                  <span className="text-xs font-serif font-semibold tracking-wide text-white">B Links</span>
                   <span className="text-[9px] px-1.5 py-0.2 bg-amber-900/60 border border-amber-700/40 text-amber-300 rounded-full font-sans uppercase">
                     PWA
                   </span>

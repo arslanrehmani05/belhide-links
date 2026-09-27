@@ -29,13 +29,13 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "Belhide Links — Handcrafted Leather Goods",
+  title: "B Links — Belhide Handcrafted Leather Goods",
   description: "Official product links, store regions, leather care guides, and custom bespoke orders for Belhide handcrafted leather outerwear.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Belhide",
+    title: "B Links",
   },
   icons: {
     icon: [
@@ -50,10 +50,10 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Belhide Links — Handcrafted Leather Goods",
+    title: "B Links — Belhide Handcrafted Leather Goods",
     description: "Official product links & care guides for Belhide handcrafted leather jackets.",
     url: "https://links.belhide.com",
-    siteName: "Belhide",
+    siteName: "B Links",
     type: "website",
   },
 };
@@ -79,9 +79,9 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Belhide" />
+        <meta name="apple-mobile-web-app-title" content="B Links" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="application-name" content="Belhide" />
+        <meta name="application-name" content="B Links" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>

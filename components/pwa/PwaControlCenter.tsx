@@ -121,7 +121,7 @@ export default function PwaControlCenter({
               </div>
               <div>
                 <h3 className="text-base font-serif font-semibold tracking-wide text-white">
-                  BELHIDE PWA Engine &amp; Features
+                  B Links PWA Engine &amp; Features
                 </h3>
                 <p className="text-[11px] text-[#A8988C]">
                   iOS 27 Modern Progressive Web App Capabilities

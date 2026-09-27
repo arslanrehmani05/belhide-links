@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Belhide — Handcrafted Leather Goods",
-    short_name: "Belhide",
+    name: "B Links — Belhide Handcrafted Leather Goods",
+    short_name: "B Links",
     description: "Official product links, store regions, leather care guides, and custom bespoke orders for Belhide handcrafted leather outerwear.",
     start_url: "/",
     display: "standalone",

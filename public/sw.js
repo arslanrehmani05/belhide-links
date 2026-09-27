@@ -91,7 +91,7 @@ self.addEventListener('sync', (event) => {
 
 // Web Push Notification Listener
 self.addEventListener('push', (event) => {
-  let data = { title: 'Belhide Leather Goods', body: 'New seasonal drop & leather care tips available!', url: '/' };
+  let data = { title: 'B Links — Belhide', body: 'New seasonal drop & leather care tips available!', url: '/' };
 
   if (event.data) {
     try {
