@@ -188,7 +188,7 @@ export default function CustomerReviews() {
             </div>
 
             <p className="text-xs text-brand-primary leading-relaxed font-normal">
-              "{rev.comment}"
+              &ldquo;{rev.comment}&rdquo;
             </p>
 
             <span className="text-[10px] text-brand-muted block text-right font-normal">
